@@ -1,13 +1,12 @@
-package controller;
+package lk.ijse.pos.controller;
 
-import bo.BOFactory;
-import bo.SuperBO;
-import bo.custom.PurchaseOrderBO;
-import bo.custom.impl.PurchaseOrderBOImpl;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.PurchaseOrderBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import db.DBConnection;
+import lk.ijse.pos.db.DBConnection;
+import lk.ijse.pos.dto.OrderDTO;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
@@ -20,10 +19,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.CustomerDTO;
-import model.ItemDTO;
-import model.OrderDetailDTO;
-import view.tdm.OrderDetailTM;
+import lk.ijse.pos.dto.CustomerDTO;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.dto.OrderDetailDTO;
+import lk.ijse.pos.view.tdm.OrderDetailTM;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -233,7 +232,7 @@ public class PlaceOrderFormController {
 
     @FXML
     private void navigateToHome(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/main-form.fxml");
+        URL resource = this.getClass().getResource("/lk/ijse/pos/view/main-form.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
@@ -316,7 +315,7 @@ public class PlaceOrderFormController {
 
     public boolean saveOrder(String orderId, LocalDate orderDate, String customerId, List<OrderDetailDTO> orderDetails) {
         try {
-            return purchaseOrderBO.purchaseOrder(orderId, orderDate, customerId, orderDetails);
+            return purchaseOrderBO.purchaseOrder(new OrderDTO(orderId, orderDate, customerId, orderDetails));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

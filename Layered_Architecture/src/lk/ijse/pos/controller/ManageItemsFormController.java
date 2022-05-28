@@ -1,9 +1,7 @@
-package controller;
+package lk.ijse.pos.controller;
 
-import bo.BOFactory;
-import bo.SuperBO;
-import bo.custom.ItemBO;
-import bo.custom.impl.ItemBOImpl;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.ItemBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
@@ -18,8 +16,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.ItemDTO;
-import view.tdm.ItemTM;
+import lk.ijse.pos.dto.ItemDTO;
+import lk.ijse.pos.view.tdm.ItemTM;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -110,7 +108,7 @@ public class ManageItemsFormController {
 
     @FXML
     private void navigateToHome(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/main-form.fxml");
+        URL resource = this.getClass().getResource("/lk/ijse/pos/view/main-form.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());

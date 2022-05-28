@@ -1,4 +1,4 @@
-package model;
+package lk.ijse.pos.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

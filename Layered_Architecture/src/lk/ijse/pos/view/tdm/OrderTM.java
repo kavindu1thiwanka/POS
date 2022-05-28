@@ -1,4 +1,4 @@
-package model;
+package lk.ijse.pos.view.tdm;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -9,23 +9,17 @@ import java.time.LocalDate;
  * @since : 0.1.0
  **/
 
-public class OrderDTO  {
+public class OrderTM  {
     private String orderId;
     private LocalDate orderDate;
     private String customerId;
     private String customerName;
     private BigDecimal orderTotal;
 
-    public OrderDTO() {
+    public OrderTM() {
     }
 
-    public OrderDTO(String orderId, LocalDate orderDate, String customerId) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.customerId = customerId;
-    }
-
-    public OrderDTO(String orderId, LocalDate orderDate, String customerId, String customerName, BigDecimal orderTotal) {
+    public OrderTM(String orderId, LocalDate orderDate, String customerId, String customerName, BigDecimal orderTotal) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.customerId = customerId;
@@ -75,7 +69,7 @@ public class OrderDTO  {
 
     @Override
     public String toString() {
-        return "OrderDTO{" +
+        return "OrderTM{" +
                 "orderId='" + orderId + '\'' +
                 ", orderDate=" + orderDate +
                 ", customerId='" + customerId + '\'' +
